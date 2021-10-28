@@ -18,3 +18,4 @@
 
 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per
 superare ciascuno dei suoi esami
+ SELECT `students`.`name` AS 'nome', `students`.`surname` AS 'cognome', `courses`.`name` AS 'nome_corso', COUNT(`courses`.`id`) AS 'numero_esami', MAX(`exam_student`.`vote`) AS 'voto' FROM `students` JOIN `exam_student` ON `exam_student`.`student_id` = `students`.`id` JOIN `exams` ON `exam_student`.`exam_id` = `exams`.`id` JOIN `courses` ON `exams`.`course_id` = `courses`.`id` GROUP BY `courses`.`id`, `nome`, `cognome`
